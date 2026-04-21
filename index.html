@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | M Naufal Rafif R</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        header {
+            background: #1e293b;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: #0f172a;
+            padding: 12px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a.active {
+            border-bottom: 2px solid #38bdf8;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+
+        .skills ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            list-style: none;
+        }
+
+        .skills li {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #1e293b;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #334155;
+        }
+
+        footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>M Naufal Rafif R</h1>
+    <p>Web Developer | Mahasiswa Informatika</p>
+</header>
+
+<nav>
+    <a href="#about">Tentang</a>
+    <a href="#skills">Skill</a>
+    <a href="#projects">Proyek</a>
+    <a href="#contact">Kontak</a>
+</nav>
+
+<section id="about">
+    <h2>Tentang Saya</h2>
+    <p>Saya adalah mahasiswa yang tertarik pada pengembangan web dan aplikasi berbasis web dan mobile.</p>
+</section>
+
+<section id="skills" class="skills">
+    <h2>Skill</h2>
+    <ul>
+        <li>HTML & CSS</li>
+        <li>JavaScript</li>
+        <li>PHP</li>
+        <li>MySQL</li>
+        <li>Bootstrap</li>
+        <li>jQuery</li>
+        <li>Python (Basic)</li>
+    </ul>
+</section>
+
+<section id="projects">
+    <h2>Proyek</h2>
+
+    <div class="card">
+        <h3>Sistem Informasi Penyewaan Ruko</h3>
+        <p>Website promosi dan penyewaan ruko.</p>
+    </div>
+
+    <div class="card">
+        <h3>CRUD PHP & MySQL</h3>
+        <p>Aplikasi CRUD sederhana.</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Kontak</h2>
+    <p>Email: example@email.com</p>
+    <button onclick="showContact()">Hubungi Saya</button>
+</section>
+
+<footer>
+    <p>© 2026 - Portfolio M Naufal Rafif R</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    // Animasi muncul saat scroll
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Navbar active
+    const navLinks = document.querySelectorAll("nav a");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.forEach(l => l.classList.remove("active"));
+            link.classList.add("active");
+        });
+    });
+
+    // Alert kontak
+    function showContact() {
+        alert("Silakan hubungi saya melalui email atau GitHub 😊");
+    }
+</script>
+
+</body>
+</html>
